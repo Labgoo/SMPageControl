@@ -20,14 +20,20 @@ typedef NS_ENUM(NSUInteger, SMPageControlVerticalAlignment) {
 	SMPageControlVerticalAlignmentBottom
 };
 
+typedef NS_ENUM(NSUInteger, SMPageControlOrientation) {
+    SMPageControlOrientationHorizontal = 1,
+    SMPageControlOrientationVertical,
+};
+
 @interface SMPageControl : UIControl
 
 @property (nonatomic) NSInteger numberOfPages;
 @property (nonatomic) NSInteger currentPage;
-@property (nonatomic) CGFloat indicatorMargin							UI_APPEARANCE_SELECTOR; // deafult is 10
-@property (nonatomic) CGFloat indicatorDiameter							UI_APPEARANCE_SELECTOR; // deafult is 6
-@property (nonatomic) SMPageControlAlignment alignment					UI_APPEARANCE_SELECTOR; // deafult is Center
-@property (nonatomic) SMPageControlVerticalAlignment verticalAlignment	UI_APPEARANCE_SELECTOR;	// deafult is Middle
+@property (nonatomic) CGFloat indicatorMargin							UI_APPEARANCE_SELECTOR; // default is 10
+@property (nonatomic) CGFloat indicatorDiameter							UI_APPEARANCE_SELECTOR; // default is 6
+@property (nonatomic) SMPageControlAlignment alignment					UI_APPEARANCE_SELECTOR; // default is Center
+@property (nonatomic) SMPageControlVerticalAlignment verticalAlignment	UI_APPEARANCE_SELECTOR;	// default is Middle
+@property (nonatomic) SMPageControlOrientation orientation              UI_APPEARANCE_SELECTOR; // default is SMPageControlOrientationHorizontal
 
 @property (nonatomic, strong) UIImage *pageIndicatorImage				UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIImage *pageIndicatorMaskImage			UI_APPEARANCE_SELECTOR; // ignored if pageIndicatorImage is set
@@ -37,6 +43,7 @@ typedef NS_ENUM(NSUInteger, SMPageControlVerticalAlignment) {
 
 @property (nonatomic) BOOL hidesForSinglePage;			// hide the the indicator if there is only one page. default is NO
 @property (nonatomic) BOOL defersCurrentPageDisplay;	// if set, clicking to a new page won't update the currently displayed page until -updateCurrentPageDisplay is called. default is NO
+@property (nonatomic) BOOL changeCurrentPageOnTouches;  // if set, touched will change the current page. default is YES
 
 - (void)updateCurrentPageDisplay;						// update page display to match the currentPage. ignored if defersCurrentPageDisplay is NO. setting the page value directly will update immediately
 

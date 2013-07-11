@@ -20,5 +20,8 @@
 @property (nonatomic, weak) IBOutlet SMPageControl *spacePageControl6;
 @property (nonatomic, weak) IBOutlet SMPageControl *spacePageControl7;
 @property (nonatomic, weak) IBOutlet SMPageControl *spacePageControl8;
+@property (nonatomic, weak) IBOutlet SMPageControl *spacePageControl9;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIView *contentView;
 
 @end
